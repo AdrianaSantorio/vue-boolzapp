@@ -11,21 +11,48 @@
     <title>Boolzap</title>
 </head>
 <body>
-    <main>
-        <div class="container">
-            <div class="row">
-                <div class="col-4">
-                    <!-- header -->
+    <main class="vh-100 p-4">
+        <div class="container h-100">
+            <div class="d-flex h-100">
+                <div class="core w-30">
+                    <section class="side-bar d-flex flex-column h-100">
+                        <!-- header -->
+                        <header class="h-standard bg-light-gray d-flex align-items-center px-2">
+                           <!-- immagine -->
+                           <img src="img/avatar_io.jpg" alt="profile picture" class="rounded-circle img-fluid h-80">
+                           <!-- nome utente -->
+                           <span class="flex-grow-1">Nome Utente</span>
+                           <!-- icone -->
+                            <i class="fas fa-circle-notch mx-2 text-gray fs-4"></i>
+                            <i class="fas fa-comment-alt mx-2 text-gray fs-4"></i>
+                            <i class="fas fa-ellipsis-v mx-2 text-gray fs-4"></i>
 
-                    <!-- navbar -->
-                        <!-- strumento di ricerca -->
-                        <!-- contatti -->
+                        </header>
+                        <!-- notification toggler -->
+                        <div class="notification-toggler"></div>
+                        <!-- navbar -->
+                        <div class="flex-grow-1 bg-white">
+                            <!-- strumento di ricerca -->
+                            <div class="search"></div>
+                            <!-- contatti -->
+                            <ul class="contact-list ">
+                                <li></li>
+                            </ul>
+
+                        </div>
+                            
+                    </section>
                 </div>
-                <div class="col-8"> 
-                    <!-- header -->
-                    <!-- chat screen -->
-                        <!-- messaggi -->
-                    <!-- message input -->
+                <div class="core w-70"> 
+                    <section class="d-flex flex-column h-100">
+                        <!-- header -->
+                        <header class="h-standard bg-light-gray"></header>
+                        <!-- chat screen -->
+                        <div class="chat-screen flex-grow-1 bg-white"></div>
+                            <!-- messaggi -->
+                        <!-- message input -->
+                        <div class="message-input bg-light-gray h-standard"></div>
+                    </section>
                 </div>
                 </div>
             </div>
