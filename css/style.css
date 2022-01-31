@@ -8,6 +8,10 @@
     width:30%;
 }
 
+.w-40 {
+    width:40%;
+}
+
 .w-70 {
     width:70%;
 }
@@ -16,9 +20,6 @@
     height:80%;
 }
 
-.h-standard {
-    height: 80px;
-}
 
 /* background */
 
@@ -43,6 +44,12 @@
         color: #8EDAFC;
     }
 
+/* text-size */
+
+.fs-7 {
+    font-size: smaller;
+}
+
 /* BODY */
 
 /* main */
@@ -51,9 +58,13 @@ main {
     background: linear-gradient(to bottom, #009688 15%, #D9DBD5 15% 100% );
 }
 
-.chat-screen {
-    background-image: url(../img/mine.jpg);
+/* headers */ 
+
+header {
+    height: 80px;
 }
+
+/* notification */
 
 #notification-toggler {
     height: 90px ;
@@ -62,4 +73,38 @@ main {
 #notification-bell {
     height: 60px;
     width: 60px;
+}
+
+
+/* Chat screen */
+
+#chat-screen {
+    background-image: url(../img/mine.jpg);
+    overflow-y: auto;
+}
+
+.message.sent {
+    justify-content: flex-start;
+}
+
+.message.received {
+    justify-content: flex-end;
+}
+
+.message-bubble {
+    border-radius: 10px;
+}
+
+.message.received .message-bubble {
+    background-color: #D5F9BA;
+}
+
+.message.sent .message-bubble {
+    background-color: white;
+}
+
+/* message input */
+
+#message-input {
+    min-height: 80px;
 }
