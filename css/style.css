@@ -23,12 +23,24 @@
 /* background */
 
 .bg-light-gray {
+    background-color: #FAFAFA;
+}
+
+.bg-gray {
     background-color: #EAEAEA;
+}
+
+.bg-light-blue {
+    background-color: #8EDAFC;
 }
 
 /* text color */
     .text-gray {
         color: #B1B1B1;
+    }
+
+    .text-light-blue {
+        color: #8EDAFC;
     }
 
 /* BODY */
@@ -43,3 +55,11 @@ main {
     background-image: url(../img/mine.jpg);
 }
 
+#notification-toggler {
+    height: 90px ;
+}
+
+#notification-bell {
+    height: 60px;
+    width: 60px;
+}

@@ -11,71 +11,89 @@
     <title>Boolzap</title>
 </head>
 <body>
-    <main class="vh-100 p-4">
-        <div class="container h-100">
-            <div class="d-flex h-100">
-                <div class="core w-30">
-                    <section class="side-bar d-flex flex-column h-100">
-                        <!-- header -->
-                        <header class="h-standard bg-light-gray d-flex align-items-center px-2">
-                           <!-- immagine -->
-                           <img src="img/avatar_io.jpg" alt="profile picture" class="rounded-circle img-fluid h-80">
-                           <!-- nome utente -->
-                           <span class="flex-grow-1">Nome Utente</span>
-                           <!-- icone -->
-                            <i class="fas fa-circle-notch mx-2 text-gray fs-4"></i>
-                            <i class="fas fa-comment-alt mx-2 text-gray fs-4"></i>
-                            <i class="fas fa-ellipsis-v mx-2 text-gray fs-4"></i>
-                        </header>
-                        <!-- notification toggler -->
-                        <div class="notification-toggler"></div>
-                        <!-- navbar -->
-                        <div class="flex-grow-1 bg-white">
-                            <!-- strumento di ricerca -->
-                            <div class="search"></div>
-                            <!-- contatti -->
-                            <ul class="contact-list ">
-                                <li></li>
-                            </ul>
-
+    <main id="root" class="vh-100 p-4">
+        <div class="container h-100 d-flex">
+            <!-- CONTACTS -->
+            <div id="contacts" class="w-30">
+                <section class="side-bar d-flex flex-column h-100">
+                    <!-- header -->
+                    <header class="h-standard bg-gray d-flex align-items-center px-2">
+                       <!-- immagine -->
+                       <img :src="'img/avatar' + user.avatar + '.jpg'" alt="profile picture" class="rounded-circle img-fluid h-80">
+                       <!-- nome utente -->
+                        <span class="flex-grow-1">{{user.name}}</span>
+                    <!-- icone -->
+                        <i class="fas fa-circle-notch mx-2 text-gray fs-4"></i>
+                        <i class="fas fa-comment-alt mx-2 text-gray fs-4"></i>
+                        <i class="fas fa-ellipsis-v mx-2 text-gray fs-4"></i>
+                    </header>
+                    <!-- notification toggler -->
+                    <div id="notification-toggler" class="d-flex align-items-center px-3 bg-light-blue h-standard">
+                        <!-- notification toggler icon -->
+                        <div id="notification-bell" class="bg-white text-light-blue rounded-circle d-flex align-items-center justify-content-center fs-5 mx-2"> 
+                            <i class="fas fa-bell-slash"></i>
                         </div>
-                            
-                    </section>
-                </div>
-                <div class="core w-70"> 
-                    <section class="d-flex flex-column h-100">
-                        <!-- header -->
-                        <header class="h-standard bg-light-gray d-flex align-items-center px-2">
-                            <!-- immagine -->
-                           <img src="img/avatar_1.jpg" alt="profile picture" class="rounded-circle img-fluid h-80">
-                           <!-- nome utente -->
-                           <div class="flex-grow-1">
+                        <!-- notification toggler text -->
+                        <div class="flex-grow-1 mx-1">
+                            <span>Ricevi notifiche di nuovi messaggi</span>
+                            <br>
+                            <a href="#" class="text-muted">Attiva le notifiche desktop</a>
+                        </div>
+                    </div>
+                    <!-- navbar -->
+                    <div class="flex-grow-1 bg-white">
+                        <!-- strumento di ricerca -->
+                        <div id="search-bar" class="p-1 bg-light-gray">
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-text bg-white border-0">
+                                    <i class="fas fa-search mx-2 text-gray fs-5"></i>
+                                </span>
+                                <input type="text" class="form-control border-0" placeholder="Cerca o inizia una nuova chat">
+                            </div>
+                              
+                        </div>
+                        <!-- contatti -->
+                        <ul class="contact-list ">
+                            <li></li>
+                        </ul>
+                    </div>   
+                </section>
+            </div>
+            <!-- CHAT -->
+            <div id="chat" class="w-70"> 
+                <section class="d-flex flex-column h-100">
+                    <!-- header -->
+                    <header class="h-standard bg-gray d-flex align-items-center px-2">
+                        <!-- immagine -->
+                       <img src="img/avatar_1.jpg" alt="profile picture" class="rounded-circle img-fluid h-80">
+                       <!-- nome utente -->
+                       <div class="flex-grow-1">
                             <span>Michele</span>
                             <br>
                             <span class="text-muted">Ultimo accesso oggi alle</span>
-                           </div>
-                           <!-- icone -->
-                            <i class="fas fa-search mx-2 text-gray fs-4"></i>
-                            <i class="fas fa-paperclip mx-2 text-gray fs-4"></i>
-                            <i class="fas fa-ellipsis-v mx-2 text-gray fs-4"></i>
-                        </header>
-                        <!-- chat screen -->
-                        <div class="chat-screen flex-grow-1 bg-white"></div>
-                            <!-- messaggi -->
-                        <!-- message input -->
-                        <div id="message-input" class="bg-light-gray h-standard d-flex align-items-center px-2">
-                            <!-- emojis -->
-                            <i class="far fa-smile mx-2 text-gray fs-4 mx-4"></i>
-                            <!-- input -->
-                            <div class="flex-grow-1 input-group input-group-lg h-80">
-                                <input type="text" class="form-control border-0 fs-6" placeholder="Scrivi un messaggio" >
-                            </div>
-                            <!-- audio-message recorder -->
-                            <i class="fas fa-microphone text-gray fs-4 mx-4"></i>
+                       </div>
+                       <!-- icone -->
+                        <i class="fas fa-search mx-2 text-gray fs-4"></i>
+                        <i class="fas fa-paperclip mx-2 text-gray fs-4"></i>
+                        <i class="fas fa-ellipsis-v mx-2 text-gray fs-4"></i>
+                    </header>
+                    <!-- chat screen -->
+                    <div class="chat-screen flex-grow-1 bg-white">
+                        <!-- messaggi -->
+                    </div>
+                    <!-- message input -->
+                    <div id="message-input" class="bg-gray h-standard d-flex align-items-center px-2">
+                        <!-- emojis -->
+                        <i class="far fa-smile mx-2 text-gray fs-4 mx-4"></i>
+                        <!-- input -->
+                        <div class="flex-grow-1 input-group input-group-lg h-80">
+                            <input type="text" class="form-control border-0 fs-6" placeholder="Scrivi un messaggio" >
                         </div>
-                    </section>
-                </div>
-                </div>
+                        <!-- audio-message recorder -->
+                        <i class="fas fa-microphone text-gray fs-4 mx-4"></i>
+                    </div>
+                </section>
+            </div>
             </div>
         </div>
     </main>
