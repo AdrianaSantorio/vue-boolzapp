@@ -1,11 +1,40 @@
 /*# layout */
 
-div[class*=col] {
-    height: 100px;
+div[class*=core] {
     border: 2px solid red;
 }
 
-div[class*=row] {
+div[class*=ciao] {
     height: 150px;
     border: 2px solid blue;
 }
+
+.core header {
+    background-color: blue;
+    height: 80px;
+}
+
+.core .message-input {
+    background-color: blue;
+    height: 80px;
+}
+
+/* UTILITIES */
+
+.w-30 {
+    width:30%;
+}
+
+.w-70 {
+    width:70%;
+}
+
+/* BODY */
+
+/* main */
+
+main {
+    background: linear-gradient(to bottom, #009688 15%, #D9DBD5 15% 100% );
+}
+
+
