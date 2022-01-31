@@ -18,9 +18,9 @@
                 <section class="side-bar d-flex flex-column h-100">
                     <!-- header -->
                     <header class=" bg-gray d-flex align-items-center px-2">
-                       <!-- immagine -->
+                       <!-- profile-picture -->
                        <img :src="'img/avatar' + user.avatar + '.jpg'" alt="profile picture" class="rounded-circle img-fluid h-80">
-                       <!-- nome utente -->
+                       <!-- user name -->
                         <span class="flex-grow-1">{{user.name}}</span>
                     <!-- icone -->
                         <i class="fas fa-circle-notch mx-2 text-gray fs-4"></i>
@@ -53,8 +53,13 @@
                               
                         </div>
                         <!-- contatti -->
-                        <ul class="contact-list ">
-                            <li></li>
+                        <ul class="contact-list p-0">
+                            <li v-for="(contact, index) in contacts" class="d-flex align-items-center">
+                                 <!-- profile-picture -->
+                                <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="profile picture" class="rounded-circle img-fluid h-80 mx-1">
+                                <!-- user name -->
+                                <span class="flex-grow-1">{{contact.name}}</span>
+                            </li>
                         </ul>
                     </div>   
                 </section>
@@ -64,9 +69,9 @@
                 <section class="d-flex flex-column h-100">
                     <!-- header -->
                     <header class=" bg-gray d-flex align-items-center px-2">
-                        <!-- immagine -->
+                        <!-- profile-picture -->
                        <img src="img/avatar_1.jpg" alt="profile picture" class="rounded-circle img-fluid h-80">
-                       <!-- nome utente -->
+                       <!-- user name -->
                        <div class="flex-grow-1">
                             <span>Michele</span>
                             <br>

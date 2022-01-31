@@ -75,6 +75,11 @@ header {
     width: 60px;
 }
 
+/* contact list */
+
+.contact-list li {
+    height: 90px;
+} 
 
 /* Chat screen */
 
