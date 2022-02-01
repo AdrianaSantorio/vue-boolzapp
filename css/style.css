@@ -88,11 +88,11 @@ header {
     overflow-y: auto;
 }
 
-.message.sent {
+.message.received {
     justify-content: flex-start;
 }
 
-.message.received {
+.message.sent {
     justify-content: flex-end;
 }
 
@@ -100,11 +100,11 @@ header {
     border-radius: 10px;
 }
 
-.message.received .message-bubble {
+.message.sent .message-bubble {
     background-color: #D5F9BA;
 }
 
-.message.sent .message-bubble {
+.message.received .message-bubble {
     background-color: white;
 }
 
