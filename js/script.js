@@ -12,6 +12,8 @@ const root = new Vue ({
         newMessage: '',
         searchString:'',
         currentIndex: 0,
+        currentMessage: '',
+        showMessageMenu: 'd-none',
         contacts: [
             {
               name: 'Michele',
@@ -128,6 +130,15 @@ const root = new Vue ({
               contact.visible = true;
             }
           })
+        },
+        toggleMenu(index) {
+          this.currentMessage = index;
+
+          if (this.showMessageMenu === 'd-none') {
+            this.showMessageMenu = 'd-block';
+          } else if (this.showMessageMenu === 'd-block') {
+            this.showMessageMenu = 'd-none';
+          };
         },
         deleteMessage(index) {
           this.contacts[this.currentIndex].messages = this.contacts[this.currentIndex].messages.filter((message, i) => {

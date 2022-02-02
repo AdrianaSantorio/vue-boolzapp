@@ -100,9 +100,10 @@
                             <div class="message-bubble p-3 rounded-3">
                                 <div class="d-flex align-items-center">
                                     <p class="m-0">{{message.text}}</p>
+                                    <!-- message menu -->
                                     <div class="dropdown">
-                                        <button class="btn dropdown-toggle" type="button" @click="deleteMessage(index)"></button>
-                                        <ul class="dropdown-menu" >
+                                        <button class="btn dropdown-toggle" type="button" @click="toggleMenu(index)"></button>
+                                    <ul class="message-menu" v-if="currentMessage === index" :class="showMessageMenu">
                                           <li>Info Messaggio</li>
                                           <li @click="deleteMessage(index)">Cancella Messaggio</li>
                                         </ul>
