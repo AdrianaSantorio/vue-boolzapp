@@ -14,6 +14,7 @@
     <div class="container vh-90">
         <main id="root" class="row h-100">
             <div class="col-4 p-0">
+                <!-- CONTACTS -->
                 <section id="contacts" class="h-100 d-flex flex-column bg-white">
                     <!-- header -->
                     <header id="user-profile" class="flex-shrink-0 d-flex bg-gray align-items-center px-2">
@@ -72,12 +73,13 @@
                 </section>
             </div>
             <div class="col-8 p-0">
+                <!-- CHAT -->
                 <section id="chat" class="h-100 d-flex flex-column">
                     <!-- header -->
                     <header id="contact-profile" class="flex-shrink-0 d-flex bg-gray align-items-center px-2">
                         <!-- profile picture -->
                             <figure class="h-80 m-0 rounded-circle overflow-hidden">
-                                <img :src="`img/avatar${contacts[currentIndex].avatar}.jpg`" alt="`${user.name} profile picture`" class="img-fluid h-100">
+                                <img :src="`img/avatar${contacts[currentIndex].avatar}.jpg`" alt="`${contacts[currentIndex].name} profile picture`" class="img-fluid h-100">
                             </figure>
                         <!-- contact name -->
                         <div id="user-name" class="flex-grow-1">
@@ -92,7 +94,7 @@
                         </div>
                     </header>
                     <!-- chat screen -->
-                    <section id="chat-screen" class="p-5 flex-grow-1 bg-chat-screen" >
+                    <section id="chat-screen" class="p-5 flex-grow-1 bg-chat-screen">
                         <!-- messagge -->
                         <div class="message d-flex p-2" v-for="(message,index) in contacts[currentIndex].messages" :class="message.status">
                             <!-- message bubble -->
@@ -110,7 +112,7 @@
                         <i class="far fa-smile mx-2 text-gray fs-4 mx-4" role="button"></i>
                         <!-- input -->
                         <div class="flex-grow-1 input-group input-group-lg h-80">
-                            <input type="text" class="form-control border-0 fs-6" placeholder="Scrivi un messaggio" @keyup.enter="sendMessage()" >
+                            <input type="text" class="form-control border-0 fs-6" placeholder="Scrivi un messaggio" v-model.trim="newMessage" @keyup.enter="sendMessage()" >
                         </div>
                         <!-- audio-message recorder -->
                         <i class="fas fa-microphone text-gray fs-4 mx-4" role="button"></i>

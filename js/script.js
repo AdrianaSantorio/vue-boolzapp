@@ -9,6 +9,7 @@ const root = new Vue ({
           name: 'Nome Utente',
           avatar: '_io',
         },
+        newMessage: '',
         currentIndex: 0,
         contacts: [
             {
@@ -96,7 +97,15 @@ const root = new Vue ({
         selectContact(index) {
             this.currentIndex = index;
         },
-        sendMessage() {}
+        sendMessage() {
+          const newMessage = {};
+          newMessage.text = this.newMessage.trim();
+          newMessage.status = 'sent';
+          if (this.newMessage) {
+            this.contacts[this.currentIndex].messages.push(newMessage);
+          };
+          this.newMessage= '';
+        }
     },
 
 });

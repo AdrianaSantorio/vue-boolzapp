@@ -79,6 +79,10 @@
 
 /* Chat screen */
 
+#chat-screen {
+    overflow-y: auto;
+}
+
 .message.received {
     justify-content: flex-start;
 }
