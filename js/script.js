@@ -105,7 +105,7 @@ const root = new Vue ({
 
           setTimeout(() => {
             this.addMessage('ok', 'received');
-          }, 3000)
+          }, 1000)
         },
         addMessage(text,status) {
           const newMessage = {
@@ -128,7 +128,13 @@ const root = new Vue ({
               contact.visible = true;
             }
           })
-        }, 
+        },
+        deleteMessage(index) {
+          this.contacts[this.currentIndex].messages = this.contacts[this.currentIndex].messages.filter((message, i) => {
+            if (i === index) return false;
+            else return true;
+        })
+      }
     },
 
 });

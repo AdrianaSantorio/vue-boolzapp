@@ -98,7 +98,16 @@
                         <div class="message d-flex p-2" v-for="(message,index) in contacts[currentIndex].messages" :class="message.status">
                             <!-- message bubble -->
                             <div class="message-bubble p-3 rounded-3">
-                                <p class="m-0">{{message.text}}</p>
+                                <div class="d-flex align-items-center">
+                                    <p class="m-0">{{message.text}}</p>
+                                    <div class="dropdown">
+                                        <button class="btn dropdown-toggle" type="button" @click="deleteMessage(index)"></button>
+                                        <ul class="dropdown-menu" >
+                                          <li>Info Messaggio</li>
+                                          <li @click="deleteMessage(index)">Cancella Messaggio</li>
+                                        </ul>
+                                      </div>
+                                </div>
                                 <div class="text-end">
                                     <span class="text-muted fs-7"> {{message.date}}</span>
                                 </div>
