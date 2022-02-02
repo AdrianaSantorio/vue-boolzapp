@@ -2,24 +2,15 @@
 
 /* UTILITIES */
 
-
 /* sizing */
-.w-30 {
-    width:30%;
-}
 
-.w-40 {
-    width:40%;
-}
-
-.w-70 {
-    width:70%;
+.vh-90 {
+    height: 90vh;
 }
 
 .h-80 {
-    height:80%;
+    height: 80%;
 }
-
 
 /* background */
 
@@ -33,6 +24,14 @@
 
 .bg-light-blue {
     background-color: #8EDAFC;
+}
+
+.bg-green-to-gray {
+    background: linear-gradient(to bottom, #009688 15%, #D9DBD5 15% 100% );
+}
+
+.bg-chat-screen {
+    background-image: url(../img/mine.jpg);
 }
 
 /* text color */
@@ -54,13 +53,10 @@
 
 /* main */
 
-body {
-    background: linear-gradient(to bottom, #009688 15%, #D9DBD5 15% 100% );
-}
-
 /* headers */ 
 
-header {
+#contacts header,
+#chat header  {
     height: 80px;
 }
 
@@ -77,16 +73,11 @@ header {
 
 /* contact list */
 
-.contact-list li {
+#contacts li {
     height: 90px;
 } 
 
 /* Chat screen */
-
-#chat-screen {
-    background-image: url(../img/mine.jpg);
-    overflow-y: auto;
-}
 
 .message.received {
     justify-content: flex-start;
@@ -94,10 +85,6 @@ header {
 
 .message.sent {
     justify-content: flex-end;
-}
-
-.message-bubble {
-    border-radius: 10px;
 }
 
 .message.sent .message-bubble {
@@ -111,5 +98,5 @@ header {
 /* message input */
 
 #message-input {
-    min-height: 80px;
+    height: 80px;
 }

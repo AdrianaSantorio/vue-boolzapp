@@ -96,6 +96,7 @@ const root = new Vue ({
         selectContact(index) {
             this.currentIndex = index;
         },
+        sendMessage() {}
     },
 
 });

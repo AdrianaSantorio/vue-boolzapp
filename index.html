@@ -10,119 +10,115 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Boolzap</title>
 </head>
-<body>
-     <!-- #si poteva fare direttamente sul body, sia l' altezza che il background-->
-    <main id="root" class="vh-100 p-4">
-        <!-- #marco ha dato al container vh90 e ha centrato il blocchettone con flexbox -->
-        <!-- *andava bene mettere h100 dappertutto -->
-        <div class="container h-100 d-flex">
-            <!-- CONTACTS -->
-            <div id="contacts" class="w-30">
-                <section class="side-bar d-flex flex-column h-100">
+<body class="bg-green-to-gray vh-100 d-flex justify-content-center align-items-center">
+    <div class="container vh-90">
+        <main id="root" class="row h-100">
+            <div class="col-4 p-0">
+                <section id="contacts" class="h-100 d-flex flex-column bg-white">
                     <!-- header -->
-                    <!-- #mettere il flex shrink 0 invece che il min-height -->
-                    <header class=" bg-gray d-flex align-items-center px-2">
-                       <!-- profile-picture -->
-                       <!-- #immagine con figure -->
-                       <!-- !con i backtick mi piace di più -->
-                       <img :src="'img/avatar' + user.avatar + '.jpg'" alt="profile picture" class="rounded-circle img-fluid h-80">
-                       <!-- user name -->
-                        <span class="flex-grow-1">{{user.name}}</span>
-                    <!-- icone -->
-                        <!-- #anche in un contenitore indipendente con flex e space-around -->
-                        <i class="fas fa-circle-notch mx-2 text-gray fs-4"></i>
-                        <i class="fas fa-comment-alt mx-2 text-gray fs-4"></i>
-                        <i class="fas fa-ellipsis-v mx-2 text-gray fs-4"></i>
+                    <header id="user-profile" class="flex-shrink-0 d-flex bg-gray align-items-center px-2">
+                        <!-- profile picture -->
+                            <figure class="h-80 m-0 rounded-circle overflow-hidden">
+                                <img :src="`img/avatar${user.avatar}.jpg`" alt="`${user.name} profile picture`" class="img-fluid h-100">
+                            </figure>
+                        <!-- user name -->
+                        <div id="user-name" class="flex-grow-1">
+                            <span class="h6">{{user.name}}</span>
+                        </div>
+                        <!-- icons -->
+                        <div class="text-gray fs-4 d-flex">
+                            <i class="fas fa-circle-notch mx-2" role="button"></i>
+                            <i class="fas fa-comment-alt mx-2" role="button"></i>
+                            <i class="fas fa-ellipsis-v mx-2" role="button"></i>
+                        </div>
                     </header>
-                    <!-- #questi div si potevano in effetti fare tutti come section -->
-                    <!-- notification toggler -->
-                    <div id="notification-toggler" class="d-flex align-items-center px-3 bg-light-blue ">
+                    <!-- notification toggle -->
+                    <section id="notification-toggler" class="d-flex align-items-center px-3 bg-light-blue ">
                         <!-- notification toggler icon -->
-                        <div id="notification-bell" class="bg-white text-light-blue rounded-circle d-flex align-items-center justify-content-center fs-5 mx-2"> 
+                        <div id="notification-bell" class="bg-white text-light-blue rounded-circle d-flex align-items-center justify-content-center fs-5"> 
                             <i class="fas fa-bell-slash"></i>
                         </div>
                         <!-- notification toggler text -->
                         <div class="flex-grow-1 mx-1">
-                            <span>Ricevi notifiche di nuovi messaggi</span>
-                            <br>
-                            <a href="#" class="text-muted">Attiva le notifiche desktop</a>
+                            <p class="m-0">Ricevi notifiche di nuovi messaggi</p>
+                            <p class="text-muted m-0 text-decoration-underline" role="button">Attiva le notifiche desktop</p>
                         </div>
-                    </div>
-                    <!-- navbar -->
-                    <div class="flex-grow-1 bg-white">
-                        <!-- strumento di ricerca -->
-                        <div id="search-bar" class="p-1 bg-light-gray">
-                            <div class="input-group input-group-sm">
-                                <span class="input-group-text bg-white border-0">
-                                    <i class="fas fa-search mx-2 text-gray fs-5"></i>
-                                </span>
-                                <input type="text" class="form-control border-0" placeholder="Cerca o inizia una nuova chat">
-                            </div>
-                              
-                        </div>
-                        <!-- contatti -->
-                        <!-- #mettere pointer -->
-                        <ul class="contact-list p-0">
-                            <li v-for="(contact, index) in contacts" class="d-flex align-items-center" @click="selectContact(index)">
-                                 <!-- profile-picture -->
-                                 <!-- #modificare anche l' alt -->
-                                <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="profile picture" class="rounded-circle img-fluid h-80 mx-1">
+                    </section>
+                    <!-- search bar -->
+                    <section id="search-bar" class="p-1 bg-light-gray">
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-text bg-white border-0">
+                                <i class="fas fa-search mx-2 text-gray fs-5" role="button"></i>
+                            </span>
+                            <input type="text" class="form-control border-0" placeholder="Cerca o inizia una nuova chat">
+                        </div>   
+                    </section>
+                    <!-- contact list -->
+                    <section id="contact-list" class="flex-grow-1 overflow-auto">
+                        <!-- todo:overflow auto??? -->
+                        <ul id="contacts" class="p-0">
+                            <li v-for="(contact, index) in contacts" class="d-flex align-items-center" role="button" @click="selectContact(index)">
+                               <!-- profile picture -->
+                                <figure class="h-80 m-0 rounded-circle overflow-hidden">
+                                    <img :src="`img/avatar${contact.avatar}.jpg`" alt="`${contact.name} profile picture`" class="img-fluid h-100">
+                                </figure>
                                 <!-- user name -->
-                                <span class="flex-grow-1">{{contact.name}}</span>
-                            </li>
+                                <div class="contact-name flex-grow-1">
+                                <span class="h6">{{contact.name}}</span>
+                                </div>
+                           </li>
                         </ul>
-                    </div>   
+                    </section>
                 </section>
             </div>
-            <!-- CHAT -->
-            <div id="chat" class="w-70"> 
-                <section class="flex-column h-100">
+            <div class="col-8 p-0">
+                <section id="chat" class="h-100 d-flex flex-column">
                     <!-- header -->
-                    <header class=" bg-gray d-flex align-items-center px-2 flex-shrink-0">
-                        <!-- profile-picture -->
-                       <img :src="'img/avatar' + contacts[currentIndex].avatar + '.jpg'" alt="profile picture" class="rounded-circle img-fluid h-80">
-                       <!-- user name -->
-                       <div class="flex-grow-1">
-                            <span>{{contacts[currentIndex].name}}</span>
-                            <br>
-                            <span class="text-muted">Ultimo accesso oggi alle</span>
-                       </div>
-                       <!-- icone -->
-                        <i class="fas fa-search mx-2 text-gray fs-4"></i>
-                        <i class="fas fa-paperclip mx-2 text-gray fs-4"></i>
-                        <i class="fas fa-ellipsis-v mx-2 text-gray fs-4"></i>
+                    <header id="contact-profile" class="flex-shrink-0 d-flex bg-gray align-items-center px-2">
+                        <!-- profile picture -->
+                            <figure class="h-80 m-0 rounded-circle overflow-hidden">
+                                <img :src="`img/avatar${contacts[currentIndex].avatar}.jpg`" alt="`${user.name} profile picture`" class="img-fluid h-100">
+                            </figure>
+                        <!-- contact name -->
+                        <div id="user-name" class="flex-grow-1">
+                            <p class="h6 m-0">{{contacts[currentIndex].name}}</p>
+                            <span class="text-muted fs-7">Ultimo accesso oggi alle</span>
+                        </div>
+                        <!-- icons -->
+                        <div class="text-gray fs-4 d-flex">
+                            <i class="fas fa-search mx-2" role="button" ></i>
+                            <i class="fas fa-paperclip mx-2" role="button" ></i>
+                            <i class="fas fa-ellipsis-v mx-2" role="button" ></i>
+                        </div>
                     </header>
                     <!-- chat screen -->
-                    <!-- #overflow-auto c'è anch in bootstrap -->
-                    <!-- #si potevano dare i p-0 alle col, e lavorare con row e col -->
-                    <div id="chat-screen" class="flex-grow-1 bg-white p-5" >
-                        <!-- messaggi -->
+                    <section id="chat-screen" class="p-5 flex-grow-1 bg-chat-screen" >
+                        <!-- messagge -->
                         <div class="message d-flex p-2" v-for="(message,index) in contacts[currentIndex].messages" :class="message.status">
-                            <!-- #c'è rounded 3 di bootstrap per message bubble -->
-                            <div class="message-bubble p-3 w-40">
+                            <!-- message bubble -->
+                            <div class="message-bubble p-3 rounded-3">
                                 <p class="m-0">{{message.text}}</p>
                                 <div class="text-end">
-                                    <span class="text-muted fs-7 text-end"> {{message.date}}</span>
+                                    <span class="text-muted fs-7"> {{message.date}}</span>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </section>
                     <!-- message input -->
-                    <div id="message-input" class="bg-gray  d-flex align-items-center px-2">
+                    <section id="message-input" class="bg-gray flex-shrink-0 d-flex align-items-center px-2">
                         <!-- emojis -->
-                        <i class="far fa-smile mx-2 text-gray fs-4 mx-4"></i>
+                        <i class="far fa-smile mx-2 text-gray fs-4 mx-4" role="button"></i>
                         <!-- input -->
                         <div class="flex-grow-1 input-group input-group-lg h-80">
-                            <input type="text" class="form-control border-0 fs-6" placeholder="Scrivi un messaggio" >
+                            <input type="text" class="form-control border-0 fs-6" placeholder="Scrivi un messaggio" @keyup.enter="sendMessage()" >
                         </div>
                         <!-- audio-message recorder -->
-                        <i class="fas fa-microphone text-gray fs-4 mx-4"></i>
-                    </div>
+                        <i class="fas fa-microphone text-gray fs-4 mx-4" role="button"></i>
+                    </section>
                 </section>
             </div>
-            </div>
         </div>
-    </main>
+    </div>
     <!-- script -->
     <script src="js/script.js"></script>
 </body>
