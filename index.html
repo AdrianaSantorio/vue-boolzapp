@@ -57,14 +57,14 @@
                     <!-- contact list -->
                     <section id="contact-list" class="flex-grow-1 overflow-auto">
                         <ul id="contacts" class="p-0">
-                            <li v-for="(contact, index) in contacts" class="d-flex align-items-center" role="button" @click="selectContact(index)">
+                            <li v-for="(contact, index) in contacts" class="align-items-center" :class="contact.visible? 'd-flex' : 'd-none'" role="button" @click="selectContact(index)">
                                <!-- profile picture -->
                                 <figure class="h-80 m-0 rounded-circle overflow-hidden">
                                     <img :src="`img/avatar${contact.avatar}.jpg`" alt="`${contact.name} profile picture`" class="img-fluid h-100">
                                 </figure>
-                                <!-- user name -->
+                                <!-- contact name -->
                                 <div class="contact-name flex-grow-1">
-                                <span class="h6">{{contact.name}}</span>
+                                    <span class="h6">{{contact.name}}</span>
                                 </div>
                            </li>
                         </ul>
