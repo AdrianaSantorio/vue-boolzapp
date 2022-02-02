@@ -13,7 +13,7 @@
 <body class="bg-green-to-gray vh-100 d-flex justify-content-center align-items-center">
     <div class="container vh-90">
         <main id="root" class="row h-100">
-            <div class="col-4 p-0">
+            <div class="col-4 p-0 h-100">
                 <!-- CONTACTS -->
                 <section id="contacts" class="h-100 d-flex flex-column bg-white">
                     <!-- header -->
@@ -56,7 +56,6 @@
                     </section>
                     <!-- contact list -->
                     <section id="contact-list" class="flex-grow-1 overflow-auto">
-                        <!-- todo:overflow auto??? -->
                         <ul id="contacts" class="p-0">
                             <li v-for="(contact, index) in contacts" class="d-flex align-items-center" role="button" @click="selectContact(index)">
                                <!-- profile picture -->
@@ -72,7 +71,7 @@
                     </section>
                 </section>
             </div>
-            <div class="col-8 p-0">
+            <div class="col-8 p-0 h-100">
                 <!-- CHAT -->
                 <section id="chat" class="h-100 d-flex flex-column">
                     <!-- header -->
@@ -112,7 +111,12 @@
                         <i class="far fa-smile mx-2 text-gray fs-4 mx-4" role="button"></i>
                         <!-- input -->
                         <div class="flex-grow-1 input-group input-group-lg h-80">
-                            <input type="text" class="form-control border-0 fs-6" placeholder="Scrivi un messaggio" v-model.trim="newMessage" @keyup.enter="sendMessage()" >
+                            <input 
+                             type="text" 
+                             class="form-control border-0 fs-6"
+                             placeholder="Scrivi un messaggio" 
+                             v-model.trim="newMessage" 
+                             @keyup.enter="sendMessage()" />
                         </div>
                         <!-- audio-message recorder -->
                         <i class="fas fa-microphone text-gray fs-4 mx-4" role="button"></i>

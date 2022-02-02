@@ -98,13 +98,21 @@ const root = new Vue ({
             this.currentIndex = index;
         },
         sendMessage() {
-          const newMessage = {};
-          newMessage.text = this.newMessage.trim();
-          newMessage.status = 'sent';
+          this.addMessage(this.newMessage, 'sent')
+
+          this.newMessage= '';
+        },
+        
+        addMessage(text,status) {
+          const newMessage = {
+            text,
+            status,
+            date:'',
+          }
+
           if (this.newMessage) {
             this.contacts[this.currentIndex].messages.push(newMessage);
-          };
-          this.newMessage= '';
+          }
         }
     },
 
