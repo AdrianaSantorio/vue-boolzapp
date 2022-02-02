@@ -101,6 +101,10 @@ const root = new Vue ({
           this.addMessage(this.newMessage, 'sent')
 
           this.newMessage= '';
+
+          setTimeout(() => {
+            this.addMessage('ok', 'received');
+          }, 3000)
         },
         
         addMessage(text,status) {
@@ -110,7 +114,7 @@ const root = new Vue ({
             date:'',
           }
 
-          if (this.newMessage) {
+          if (text) {
             this.contacts[this.currentIndex].messages.push(newMessage);
           }
         }
