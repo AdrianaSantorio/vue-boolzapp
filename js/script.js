@@ -10,6 +10,7 @@ const root = new Vue ({
           avatar: '_io',
         },
         newMessage: '',
+        searchString:'',
         currentIndex: 0,
         contacts: [
             {
@@ -106,7 +107,6 @@ const root = new Vue ({
             this.addMessage('ok', 'received');
           }, 3000)
         },
-        
         addMessage(text,status) {
           const newMessage = {
             text,
@@ -117,6 +117,9 @@ const root = new Vue ({
           if (text) {
             this.contacts[this.currentIndex].messages.push(newMessage);
           }
+        },
+        filterContacts() {
+          console.log(this.searchString);
         }
     },
 

@@ -51,7 +51,7 @@
                             <span class="input-group-text bg-white border-0">
                                 <i class="fas fa-search mx-2 text-gray fs-5" role="button"></i>
                             </span>
-                            <input type="text" class="form-control border-0" placeholder="Cerca o inizia una nuova chat">
+                            <input type="text" class="form-control border-0" placeholder="Cerca o inizia una nuova chat" v-model="searchString" @keyup="filterContacts()">
                         </div>   
                     </section>
                     <!-- contact list -->
